@@ -19,5 +19,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('kanban_board/', include('apps.kanban_board.urls', namespace='kanban'))
+    path('kanban_board/', include('kanban_board.urls'))
 ]
