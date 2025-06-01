@@ -66,6 +66,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'core.middleware.AdminRestrictMiddleware'
 ]
 
 ROOT_URLCONF = 'core.urls'
@@ -137,6 +138,8 @@ USE_I18N = True
 
 USE_TZ = True
 
+PUBLIC_SCHEMA_DOMAIN = 'admin.localhost:8000'
+ADMIN_RESTRICT_REDIRECT_URL = '/kanban_board/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
