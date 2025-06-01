@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: postgres-multitenant
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - ${DB_PORT}:5432
+    networks:
+      - multitenant_network
+
+volumes:
+  postgres_data:
+
+networks:
+  multitenant_network:
+    driver: bridge
