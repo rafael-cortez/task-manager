@@ -1,7 +1,13 @@
-from django.urls import path
-
+# urls.py
+from django.urls import path, include
+from rest_framework import routers
 from . import views
 
+router = routers.DefaultRouter()
+router.register(r'boards', views.BoardViewSet)
+router.register(r'lists', views.TaskListViewSet)
+router.register(r'tasks', views.TaskViewSet)
+
 urlpatterns = [
-    path("", views.index, name="index"),
+    path('', include(router.urls)),
 ]
